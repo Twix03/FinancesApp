@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main id="main" class="main">
+    <div>
+        {% include "partials/messages.html" %}
+    </div>
+    <div class="pagetitle">
+        <h1>Earnings</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item">Earnings</li>
+            </ol>
+        </nav>
+    </div>
+    <form class="row g-3 needs-validation" method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="col-12">
+            <label for="amount" class="form-label">Amount Spent</label>
+            <input type="number" step="any" class="form-control" id="amount" name="amount" required
+                value="{{data.amount}}">
+        </div>
+        <div class="col-12">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" id="description" name="description" value="{{data.description}}">
+        </div>
+        <div class="col-12">
+            <label for="date" class="form-label">Date of Earning</label>
+            <input type="date" class="form-control" id="date" name="date" value="{{data.date | date:'Y-m-d'}}">
+        </div>
+        <div class="col-md-12">
+            <label for="category" class="form-label">Category</label>
+            <select id="category" name="category" class="form-select">
+                <option selected value={{data.category}}>{{data.category}}</option>
+                {% for category in categories %}
+                <option value={{category}}>{{category}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-12">
+            <label for="file_upload" class="form-label">File Upload</label>
+            <input type="file" class="file-upload" id="file_upload" name="file">
+        </div>
+        <div class="text-center">
+            <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this earning?')"
+                href="{% url 'delete_earning' data.pk %}">Delete</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a class="btn btn-secondary" href="{% url 'earnings' %}">Cancel</a>
+        </div>
+    </form><!-- Form -->
+    </section>
+    </div>
+    </div>
+
+    </div>
+    </div>
+    </section>
+
+</main><!-- End #main -->
+{% endblock %}

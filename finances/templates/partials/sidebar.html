@@ -1,0 +1,65 @@
+{% load static %}
+
+<aside id="sidebar" class="sidebar">
+    <ul class="sidebar-nav" id="sidebar-nav">
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'index' %}">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'expenses' %}">
+                <i class="bi bi-cart"></i>
+                <span>Expenses</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'earnings' %}">
+                <i class="bi bi-currency-dollar"></i>
+                <span>Revenue</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-cash-coin"></i>
+                <span>Targets</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'charts' %}">
+                <i class="bi bi-cash-coin"></i>
+                <span>Charts</span>
+            </a>
+        </li>
+
+        <li class="nav-heading">User</li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="users-profile.html">
+                <i class="bi bi-person"></i>
+                <span>Profile</span>
+            </a>
+        </li><!-- End Profile Page Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{% url 'signout' %}"
+                onclick="return confirm('Are you sure you want to log out?')">
+                <i class="bi bi-box-arrow-in-right"></i>
+                <span>Log Out</span>
+            </a>
+        </li><!-- End Login Page Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#">
+                <i class="bi bi-file-earmark"></i>
+                <span>Downloads</span>
+            </a>
+        </li><!-- End Blank Page Nav -->
+    </ul>
+</aside><!-- End Sidebar-->
